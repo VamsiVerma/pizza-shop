@@ -1,0 +1,34 @@
+.stage-container {
+  justify-content: space-evenly;
+  padding: 12px 24px;
+  border: 2px solid grey;
+  border-radius: 8px;
+  margin: 24px 180px;
+}
+.stage-column {
+  align-items: center;
+  margin: 6px;
+}
+
+.pizza-card {
+  width: 160px;
+  border: 2px solid grey;
+  align-items: center;
+  border-radius: 5px;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.red {
+  background-color: FA5F55;
+  color: white;
+}
+
+.picked-msg {
+  font-weight: 700;
+}
+
+.next-btn {
+  padding: 5px 10px;
+  border-radius: 8px;
+}

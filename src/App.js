@@ -1,54 +1,24 @@
-import * as React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import React from "react";
+import { Provider } from "react-redux";
+import store from "./container/store";
 import OrderPage from "./components/order-page/OrderPage";
-import Board from "./components/Board";
+import PizzaStages from "./components/pizza-stages/PizzaStages";
+import MainSection from "./components/main-section/MainSection";
 import "./App.css";
 
-// const AppLayout = () => (
-//   <React.Fragment>
-//     <OrderPage />
-//   </React.Fragment>
-// );
-
-// const router = createBrowserRouter([
-//   {
-//     element: <AppLayout />,
-//     children: [
-//       {
-//         path: "/",
-//         element: <Home />,
-//       },
-//     ],
-//   },
-// ]);
-
-const initialData = {
-  tasks: {
-    "task-1": { id: "task-1", content: "Task 1" },
-    "task-2": { id: "task-2", content: "Task 2" },
-    "task-3": { id: "task-3", content: "Task 3" },
-    "task-4": { id: "task-4", content: "Task 4" },
-  },
-  columns: {
-    "column-1": {
-      id: "column-1",
-      title: "To Do",
-      taskIds: ["task-1", "task-2", "task-3", "task-4"],
-    },
-  },
-  columnOrder: ["column-1"],
-};
-
-const App = () => {
+function App() {
   return (
-    <div className="App d-flex flex-column">
-      <div>
-        <h1>My Pizza Shop</h1>
+    <Provider store={store}>
+      <div className="app-container d-flex flex-column">
+        <h1 className="m-2">Pizza Shop Simulator</h1>
+        <OrderPage />
+        <div className="flex-container">
+          <PizzaStages />
+          <MainSection />
+        </div>
       </div>
-      <OrderPage />
-      <Board initialData={initialData} />
-    </div>
+    </Provider>
   );
-};
+}
 
 export default App;

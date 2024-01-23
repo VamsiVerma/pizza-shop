@@ -1,54 +1,59 @@
 import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { placeOrder } from "../../container/actions";
 import "./OrderPage.css";
 
 const OrderPage = () => {
-  const [formData, setFormData] = useState({
-    type: "",
-    size: "",
-    base: "",
-  });
+  const dispatch = useDispatch();
+  const orders = useSelector((state) => state.pizza.orders);
+  const [formData, setFormData] = useState({});
+  const maxOrders = 10;
 
-  const onChangeHandler = (event) => {
-    setFormData(() => ({
-      ...formData,
-      [event.target.name]: event.target.value,
-    }));
+  const generateOrderId = () => {
+    const lastOrder = orders[orders.length - 1];
+    const lastOrderId = lastOrder ? parseInt(lastOrder.id, 10) : 0;
+    const newOrderId = (lastOrderId + 1).toString().padStart(3, "0");
+    return newOrderId;
   };
-  const onSubmitHandler = (e) => {
+
+  const handlePlaceOrder = (e) => {
     e.preventDefault();
-    console.log("form Submitted");
+    const currentInProgressOrders = orders.filter(
+      (order) =>
+        order.stage === "Order Placed" || order.stage === "Order In Making"
+    );
+
+    if (currentInProgressOrders.length >= maxOrders) {
+      alert("Not taking any order for now. Maximum order limit reached.");
+      return;
+    }
+
+    const orderId = generateOrderId();
+    const orderWithId = {
+      ...formData,
+      id: orderId,
+      stage: "Order Placed",
+      startTime: Date.now(),
+    };
+    dispatch(placeOrder(orderWithId));
+    setFormData({});
   };
 
   return (
     <div id="order-form" className="orderForm m-3">
-      <form onSubmit={onSubmitHandler}>
-        <div className="form-group d-flex flex-row">
+      <h2 className="p-2">Place Your Pizza Order</h2>
+      <form>
+        <div className="form-group">
           <label htmlFor="type" className="form-label">
             Type of Pizza
           </label>
-          <div className="d-flex flex-column pizzaType">
-            <div>
-              <input
-                type="radio"
-                name="type"
-                value="Veg"
-                className=""
-                onChange={onChangeHandler}
-                // checked={formData.gender === "male"}
-              />
-              <label htmlFor="veg">Veg</label>
-            </div>
-            <div>
-              <input
-                type="radio"
-                name="type"
-                value="Non-veg"
-                onChange={onChangeHandler}
-                // checked={formData.gender === "female"}
-              />
-              <label htmlFor="non-veg">Non-Veg</label>
-            </div>
-          </div>
+          <select
+            className="form-select"
+            onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+          >
+            <option value="Veg">Veg</option>
+            <option value="Non-Veg">Non-Veg</option>
+          </select>
         </div>
         <div className="form-group">
           <label htmlFor="size" className="form-label">
@@ -57,12 +62,8 @@ const OrderPage = () => {
           <select
             className="form-select"
             name="size"
-            onChange={onChangeHandler}
-            // value={formData.occupation}
+            onChange={(e) => setFormData({ ...formData, size: e.target.value })}
           >
-            <option value="none" selected disabled hidden>
-              Select an Option
-            </option>
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="large">Large</option>
@@ -75,19 +76,17 @@ const OrderPage = () => {
           <select
             className="form-select"
             name="base"
-            onChange={onChangeHandler}
-            // value={formData.occupation}
+            onChange={(e) =>
+              setFormData({ ...setFormData, base: e.target.value })
+            }
           >
-            <option value="none" selected disabled hidden>
-              Select an Option
-            </option>
             <option value="thick">Thick</option>
             <option value="thin">Thin</option>
           </select>
         </div>
         <div className="form-group">
-          <button className="btn" type="submit">
-            Submit
+          <button className="btn" onClick={handlePlaceOrder}>
+            Place Order
           </button>
         </div>
       </form>

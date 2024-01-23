@@ -1,0 +1,26 @@
+.main {
+  margin-top: 24px;
+}
+
+.main-table {
+  margin: 12px 480px;
+  align-items: center;
+  border: 2px solid grey;
+  border-radius: 8px;
+}
+
+.main-table tr {
+  justify-content: space-between;
+  margin-bottom: 8px;
+  gap: 42px;
+  align-items: center;
+}
+
+.main-table tr th {
+  display: flex;
+  align-items: center;
+}
+
+tr td button {
+  border-radius: 4px;
+}

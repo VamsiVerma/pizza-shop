@@ -1,5 +1,15 @@
+.orderForm {
+  background-color: #fff;
+  border: 2px solid grey;
+  border-radius: 16px;
+  width: 300px;
+  height: auto;
+  align-self: center;
+  color: black;
+}
+
 .orderForm form {
-  padding: 16px;
+  padding: 12px;
 }
 
 .form-label {
