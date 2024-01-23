@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import CustomAlert from "../custom-alert/CustomAlert";
+
 import { placeOrder } from "../../container/actions";
 import "./OrderPage.css";
 
 const OrderPage = () => {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.pizza.orders);
+  const [isAlertVisible, setAlertVisible] = useState(false);
+
+  const closeAlert = () => {
+    setAlertVisible(false);
+  };
   const [formData, setFormData] = useState({});
   const maxOrders = 10;
 
@@ -24,7 +31,7 @@ const OrderPage = () => {
     );
 
     if (currentInProgressOrders.length >= maxOrders) {
-      alert("Not taking any order for now. Maximum order limit reached.");
+      setAlertVisible(true);
       return;
     }
 
@@ -89,6 +96,12 @@ const OrderPage = () => {
             Place Order
           </button>
         </div>
+        {isAlertVisible && (
+          <CustomAlert
+            message="Not taking any order for now. Maximum order limit reached !"
+            onClose={closeAlert}
+          />
+        )}
       </form>
     </div>
   );
