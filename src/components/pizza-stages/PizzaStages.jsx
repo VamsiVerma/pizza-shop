@@ -64,7 +64,7 @@ function PizzaStages() {
                           {calculateTimeSpent(order.startTime, currentTime)}
                         </p>
                         <button
-                          className="next-btn"
+                          className="next-btn btn-grad"
                           onClick={() =>
                             handleMoveToNextStage(order.id, order.stage)
                           }

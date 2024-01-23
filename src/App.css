@@ -1,3 +1,25 @@
 .app-container {
   text-align: center;
 }
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  text-align: center;
+  box-shadow: 1px 1px 5px #eee;
+  border-radius: 8px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}

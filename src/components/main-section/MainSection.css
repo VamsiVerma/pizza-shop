@@ -6,6 +6,7 @@
   margin: 12px 480px;
   align-items: center;
   border: 2px solid grey;
+  box-shadow: 2px 2px 4px #b2beb5;
   border-radius: 8px;
 }
 
@@ -23,4 +24,10 @@
 
 tr td button {
   border-radius: 4px;
+}
+
+.total-delivery {
+  font-size: 24px;
+  font-weight: 600;
+  color: blue;
 }

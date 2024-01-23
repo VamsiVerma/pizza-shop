@@ -2,6 +2,7 @@
   background-color: #fff;
   border: 2px solid grey;
   border-radius: 16px;
+  box-shadow: 2px 2px 4px #b2beb5;
   width: 300px;
   height: auto;
   align-self: center;
@@ -69,8 +70,13 @@
 
 .btn {
   color: #fff;
-  background-color: #0d6efd;
+  background-color: #498cf1;
   border-color: #0d6efd;
   padding: 5px 10px;
   border-radius: 16px;
+}
+
+.btn:hover {
+  background-color: #0d6efd;
+  color: white;
 }

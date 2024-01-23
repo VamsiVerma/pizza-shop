@@ -2,6 +2,7 @@
   justify-content: space-evenly;
   padding: 12px 24px;
   border: 2px solid grey;
+  box-shadow: 2px 2px 4px #b2beb5;
   border-radius: 8px;
   margin: 24px 180px;
 }

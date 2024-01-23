@@ -47,7 +47,7 @@ function MainSection() {
               <td>
                 {order.stage !== "Order Ready" && (
                   <button
-                    className="d-flex cancel-btn"
+                    className="d-flex cancel-btn btn-grad"
                     onClick={() => handleCancelOrder(order.id)}
                   >
                     Cancel
@@ -58,7 +58,9 @@ function MainSection() {
           ))}
         </tbody>
       </table>
-      <p>Total Orders Delivered Today: {totalDelivered}</p>
+      <p className="total-delivery">
+        Total Orders Delivered Today: {totalDelivered}
+      </p>
     </div>
   );
 }
