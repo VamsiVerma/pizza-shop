@@ -21,3 +21,4 @@ d. Order Picked
 ## Note:
 
 This site is not cross browser compatibility, only have desktop compatibility
+![image](https://github.com/VamsiVerma/pizza-shop/assets/48900960/9f9c7a92-2376-4c5e-a5d7-a67c7a3d95fd)
