@@ -20,4 +20,4 @@ d. Order Picked
 
 ## Note:
 
-This site is not cross browser compatibility, only desktop is working properly, mobile section might break;
+This site is not cross browser compatibility, only have desktop compatibility
