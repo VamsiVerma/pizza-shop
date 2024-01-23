@@ -4,7 +4,8 @@
   border: 2px solid grey;
   box-shadow: 2px 2px 4px #b2beb5;
   border-radius: 8px;
-  margin: 24px 180px;
+  width: 75%;
+  margin: 24px 175px;
 }
 .stage-column {
   align-items: center;

@@ -3,7 +3,8 @@
 }
 
 .main-table {
-  margin: 12px 480px;
+  width: 594px;
+  margin: 12px 530px;
   align-items: center;
   border: 2px solid grey;
   box-shadow: 2px 2px 4px #b2beb5;
