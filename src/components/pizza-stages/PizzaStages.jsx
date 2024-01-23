@@ -40,7 +40,7 @@ function PizzaStages() {
         {["Order Placed", "Order In Making", "Order Ready", "Order Picked"].map(
           (stage) => (
             <div key={stage} className="stage-column d-flex flex-column">
-              <h3>{stage}</h3>
+              <h3 className="stageName">{stage}</h3>
               {orders
                 .filter((order) => order.stage === stage)
                 .map((order) => (

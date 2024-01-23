@@ -12,6 +12,11 @@
   margin: 6px;
 }
 
+.stageName {
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .pizza-card {
   width: 160px;
   border: 2px solid grey;
