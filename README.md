@@ -17,3 +17,7 @@ a. Order Placed
 b. Order in Making
 c. Order Ready
 d. Order Picked
+
+## Note:
+
+This site is not cross browser compatibility, only desktop is working properly, mobile section might break;
